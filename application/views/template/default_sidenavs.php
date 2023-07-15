@@ -51,16 +51,16 @@
 					</li>
 
 				
-					<li><a><i class="fa fa-edit"></i> Penjualan <span class="fa fa-chevron-down"></span></a>
+					<!--<li><a><i class="fa fa-edit"></i> Penjualan <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                     	<li><a href="<?php echo base_url('example/form_invoice') ?>">Tambah Penjualan</a></li>
                     	<li><a href="<?php echo base_url('example/table_invoice') ?>">Lihat Penjualan</a></li>
                     	<li><a href="<?php echo base_url('example/invoice_report') ?>">Grafik Penjualan</a></li>
                     </ul>
-                  </li>
+                  </li>-->
 
 
-                  <li><a><i class="fa fa-shopping-cart"></i> Pembelian <span class="fa fa-chevron-down"></span></a>
+                  <!--<li><a><i class="fa fa-shopping-cart"></i> Pembelian <span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu">
 							<li><a href="<?php echo base_url('example/form_purchase') ?>">Tambah Pembelian</a></li>
 							<li><a href="<?php echo base_url('example/table_purchase') ?>">Lihat Pembelian</a></li>
@@ -68,10 +68,10 @@
 							
 							
 						</ul>
-					</li>
+					</li>-->
 
 
-					<li><a href="<?php echo base_url('example/report') ?>"><i class="fa fa-bar-chart"></i> Laporan </a></li>
+					<!--<li><a href="<?php echo base_url('example/report') ?>"><i class="fa fa-bar-chart"></i> Laporan </a></li>-->
 
 				</ul>
 			</div>

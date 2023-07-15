@@ -29,7 +29,14 @@
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="penyimpanan">Penyimpanan</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input type="text" id="penyimpanan" name="penyimpanan" required="required" class="form-control col-md-7 col-xs-12" value="<?php echo $m->penyimpanan ?>">
+              <select name="penyimpanan" id="penyimpanan" required="required" class="select2_single form-control">
+                  <option selected="true" value="" disabled><?php echo $m->penyimpanan ?></option>
+                  <option <?php { echo 'selected="selected"'; } ?>value="Rak 1">Rak 1</option>
+                  <option <?php { echo 'selected="selected"'; } ?> value="Rak 2">Rak 2</option>
+                  <option <?php { echo 'selected="selected"'; } ?> value="Rak 3">Rak 3</option>
+                  <option <?php { echo 'selected="selected"'; } ?> value="Rak 4">Rak 4</option>
+                  <option <?php { echo 'selected="selected"'; } ?> value="Rak 5">Rak 5</option>
+                </select>
             </div>
           </div>
 

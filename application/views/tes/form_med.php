@@ -27,7 +27,14 @@
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="penyimpanan">Penyimpanan</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input id="penyimpanan" name="penyimpanan" required="required" class="form-control col-md-7 col-xs-12">
+              <select name="penyimpanan" id="penyimpanan" required="required" class="select2_single form-control">
+                <option selected="true" value="" disabled>Pilih Penyimpanan</option>
+                <option value="Rak 1">Rak 1</option>
+                <option value="Rak 2">Rak 2</option>
+                <option value="Rak 3">Rak 3</option>
+                <option value="Rak 4">Rak 4</option>
+                <option value="Rak 5">Rak 5</option>
+              </select>
             </div>
           </div>
           <div class="item form-group">
