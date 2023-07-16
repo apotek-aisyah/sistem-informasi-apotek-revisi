@@ -67,7 +67,7 @@ class Apotek_data extends CI_Model
         {
         foreach ($query as $row ) 
         {
-          $data[$row['nama_kategori']] = $row['nama_kategori'];
+          $data[$row['id_kat']] = $row['id_kat'];
         }
         }
         asort($data);
@@ -83,7 +83,7 @@ class Apotek_data extends CI_Model
         {
         foreach ($query as $row ) 
         {
-          $data[$row['nama_pemasok']] = $row['nama_pemasok'];
+          $data[$row['id_pem']] = $row['id_pem'];
         }
         }
         asort($data);
@@ -101,7 +101,7 @@ class Apotek_data extends CI_Model
         {
         foreach ($query as $row ) 
         {
-          $data[$row['unit']] = $row['unit'];
+          $data[$row['id_unit']] = $row['id_unit'];
         }
         }
         asort($data);

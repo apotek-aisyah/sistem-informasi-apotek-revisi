@@ -15,7 +15,7 @@
       <div class="x_content">
 
         <?php foreach($table_med as $m){ ?>
-        <form action="<?php echo base_url(). 'example/update_medicine'; ?>" method="post" class="form-horizontal form-label-left" novalidate>
+        <form action="<?php echo base_url(). 'obatcontroller/update_medicine'; ?>" method="post" class="form-horizontal form-label-left" novalidate>
 
 
           <div class="item form-group">
@@ -51,9 +51,9 @@
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="unit">Unit</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <select name="unit" id="unit" class="select2_single form-control" tabindex="-1">
+              <select name="unit_id" id="unit_id" class="select2_single form-control" tabindex="-1">
                  <?php foreach ($get_unit as $gu) { ?>
-                  <option <?php if($gu == $m->unit)
+                  <option <?php if($gu == $m->unit_id)
                   { echo 'selected="selected"'; } ?> value="<?php echo $gu ?>"><?php echo $gu ?> </option>
                   <?php } ?>
               </select>
@@ -62,10 +62,10 @@
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_kategori">Kategori</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <select name="nama_kategori" id="nama_kategori" class="select2_single form-control" tabindex="-1">
+              <select name="kategori_id" id="kategori_id" class="select2_single form-control" tabindex="-1">
                
               <?php foreach ($get_cat as $gc) { ?>
-              <option <?php if($gc == $m->nama_kategori)
+              <option <?php if($gc == $m->kategori_id)
               { echo 'selected="selected"'; } ?> value="<?php echo $gc ?>"><?php echo $gc ?> </option>
               <?php } ?>
 
@@ -116,9 +116,9 @@
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_pemasok">Pemasok</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <select name="nama_pemasok" id="nama_pemasok" class="select2_single form-control" tabindex="-1">
+              <select name="pemasok_id" id="pemasok_id" class="select2_single form-control" tabindex="-1">
                 <?php foreach ($get_sup as $gs) { ?>
-                <option <?php if($gs == $m->nama_pemasok)
+                <option <?php if($gs == $m->pemasok_id)
                 { echo 'selected="selected"'; } ?> value="<?php echo $gs ?>"><?php echo $gs ?> </option>
                 <?php } ?>
               </select>
@@ -128,7 +128,7 @@
           <div class="ln_solid"></div>
           <div class="form-group">
             <div class="col-md-6 col-md-offset-3">
-              <a href="<?php echo base_url('example/table_med') ?>"><button type="button" class="btn btn-danger">Batal</button></a>
+              <a href="<?php echo base_url('obatcontroller/table_med') ?>"><button type="button" class="btn btn-danger">Batal</button></a>
               <button id="send" type="submit" class="btn btn-success">Simpan</button>
               
             </div>
