@@ -103,6 +103,21 @@
               </select>
             </div>
           </div>
+          <div class="item form-group">
+            <label  class="control-label col-md-3 col-sm-3 col-xs-12">Resep</label>
+            <diV class="col-md-6 col-sm-6 col-xs-12 mt-n2 ">
+              <input class="form-check-input" type="radio" name="recipe" id="flexRadioDefault1" value="menggunakan>
+              <label class="form-check-label" for="flexRadioDefault1">
+                Menggunakan resep
+              </label>
+            </diV>
+            <div class="col-md-6 col-sm-6 col-xs-12 mt-n2 ">
+              <input class="form-check-input" type="radio" name="recipe" id="flexRadioDefault1" value="tidak menggunakan>
+              <label class="form-check-label" for="flexRadioDefault1">
+                Tidak menggunakan resep
+              </label>
+            </div>
+          </div>
 
           <div class="ln_solid"></div>
           <div class="form-group">

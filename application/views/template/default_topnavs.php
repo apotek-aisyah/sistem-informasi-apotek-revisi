@@ -22,11 +22,23 @@
 				<li role="presentation" class="dropdown">
                   <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-bell-o" style="font-size: 18px"></i>
-                    <span class="badge bg-red" ><?php $nulltol = $nullex + $nullstock ; if ($nulltol > 0) echo $nulltol ?></span>
+                    <span class="badge bg-red" ><?php $nulltol = $nullex + $nullstock + $almost ; if ($nulltol > 0) echo $nulltol ?></span>
                   </a>
                   <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                      <li>
+                        <a href="<?php echo base_url('example/table_exp') ?>" class="bg-warning">
+                          <span class="fa fa-warning" style="font-size: 18px;"></span>
+                          <span style="font-size: 15px;">
+                            <span> Kedaluwarsa</span>
+                            <span class="time"><?php echo $almost ?> obat</span>
+                          </span>
+                          <span class="message">
+                            Obat hampir kedaluwarsa...
+                          </span>
+                        </a>
+                      </li>
                     <li>
-                      <a href="<?php echo base_url('example/table_exp') ?>">
+                      <a href="<?php echo base_url('example/table_exp') ?>" class="bg-danger">
                         <span class="fa fa-warning" style="font-size: 18px;"></span>
                         <span style="font-size: 15px;">
                           <span> Kedaluwarsa</span>

@@ -16,6 +16,7 @@ class Example extends CI_Controller
        
         $data['nullstock'] = $this->apotek_data->countstock();
         $data['nullex'] = $this->apotek_data->countex();
+				$data['almost'] = $this->apotek_data->countalmostex();
         $this->template->write_view('sidenavs', 'template/default_sidenavs', true);
 		$this->template->write_view('navs', 'template/default_topnavs.php', $data, true);
 	}
@@ -272,6 +273,7 @@ class Example extends CI_Controller
 		$harga_beli = $this->input->post('harga_beli');
 		$harga_jual = $this->input->post('harga_jual');
 		$nama_pemasok = $this->input->post('nama_pemasok');
+		$recipe = $this->input->post('recipe');
  
 		$data = array(
 			'nama_obat' => $nama_obat,
@@ -284,7 +286,7 @@ class Example extends CI_Controller
 			'harga_beli' => $harga_beli,
 			'harga_jual' => $harga_jual,
 			'nama_pemasok' => $nama_pemasok,
-			
+			'recipe' => $recipe,
 			);
 		$this->apotek_data->insert_data($data,'table_med');
 

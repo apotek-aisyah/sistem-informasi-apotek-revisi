@@ -382,6 +382,12 @@ class Apotek_data extends CI_Model
         return $nullex;     
     }
 
+    function countalmostex(){       
+        $ce = $this->db->query('SELECT * FROM table_med WHERE kedaluwarsa BETWEEN NOW() AND DATE_ADD(NOW(), INTERVAL 60 DAY)');
+            $almost = $ce->num_rows();
+            return $almost;     
+        }
+
     function count_med(){       
       $cm =  $this->db->query('SELECT *, SUM(table_med.stok) as totStock FROM table_med'); 
         if ($cm->num_rows() > 0) {
