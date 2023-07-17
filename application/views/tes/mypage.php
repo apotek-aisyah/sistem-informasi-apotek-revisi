@@ -57,7 +57,7 @@
 
           <div class="row top_tiles">
               <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                  <a href="<?php echo base_url('example/form_med') ?>">
+                  <a href="<?php echo base_url('obatcontroller/form_med') ?>">
                   <div class="tile-stats">
                     <div class="icon"><i class="fa fa-medkit green"></i>
                     </div>
@@ -69,7 +69,7 @@
                 </div>
 
                 <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                  <a href="<?php echo base_url('example/form_cat') ?>">
+                  <a href="<?php echo base_url('kategori/form_cat') ?>">
                   <div class="tile-stats">
                     <div class="icon"><i class="fa fa-hospital-o green"></i>
                     </div>
@@ -82,7 +82,7 @@
 
 
                 <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                  <a href="<?php echo base_url('example/form_sup') ?>">
+                  <a href="<?php echo base_url('pemasok/form_sup') ?>">
                   <div class="tile-stats">
                     <div class="icon"><i class="fa fa-user green"></i>
                     </div>
@@ -94,7 +94,7 @@
                 </div>
 
                 <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <a href="<?php echo base_url('example/form_invoice') ?>">
+                <a href="#">
                 <div class="tile-stats">
                   <div class="icon"><i class="fa fa-edit green"></i>
                     </div>
@@ -107,7 +107,7 @@
 
 
                 <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <a href="<?php echo base_url('example/table_exp') ?>">
+                <a href="<?php echo base_url('obatcontroller/table_exp') ?>">
                   <div class="tile-stats">
                     <div class="icon"><i class="fa fa-warning green"></i>
                     </div>
@@ -120,7 +120,7 @@
 
 
                 <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                  <a href="<?php echo base_url('example/table_stock') ?>">
+                  <a href="<?php echo base_url('obatcontroller/table_stock') ?>">
                   <div class="tile-stats">
                     <div class="icon"><i class="fa fa-file-text-o green"></i>
                     </div>
@@ -133,7 +133,7 @@
 
 
                 <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                   <a href="<?php echo base_url('example/report') ?>">
+                   <a href="#">
                   <div class="tile-stats">
                     <div class="icon"><i class="fa fa-bar-chart green"></i>
                     </div>
@@ -146,7 +146,7 @@
 
 
                 <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                   <a href="<?php echo base_url('example/form_purchase') ?>">
+                   <a href="#">
                   <div class="tile-stats">
                     <div class="icon"><i class="fa fa-shopping-cart green"></i>
                     </div>

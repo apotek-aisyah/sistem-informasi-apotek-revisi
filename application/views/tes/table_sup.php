@@ -25,7 +25,7 @@
                  	
 				<?php endif; ?>
 
-				<a href="<?php echo base_url('example/form_sup') ?>"><button type="button" class="btn btn-success" style="margin-bottom: 13px"><span class="fa fa-plus"></span> Tambah Pemasok </button></a>
+				<a href="<?php echo base_url('pemasok/form_sup') ?>"><button type="button" class="btn btn-success" style="margin-bottom: 13px"><span class="fa fa-plus"></span> Tambah Pemasok </button></a>
 				
 				<table id="datatable-buttons" class="table table-striped table-bordered">
 					<thead>
@@ -48,8 +48,8 @@
 							<td><?php echo $s->alamat ?></td>
 							<td><?php echo $s->telepon ?></td>
 							<td style=" text-align: center;">
-								<?php echo anchor('example/edit_form_sup/'.$s->id_pem, '<button class="btn btn-info btn-xs" type="button"><span class="fa fa-pencil"></span></button>'); ?>
-								<?php echo anchor('example/remove_sup/'.$s->id_pem, '<button class="btn btn-danger btn-xs" type="button"><span class="fa fa-trash"></span></button>');?>
+								<?php echo anchor('pemasok/edit_form_sup/'.$s->id_pem, '<button class="btn btn-info btn-xs" type="button"><span class="fa fa-pencil"></span></button>'); ?>
+								<?php echo anchor('pemasok/remove_sup/'.$s->id_pem, '<button class="btn btn-danger btn-xs" type="button"><span class="fa fa-trash"></span></button>');?>
 					         </td>
 						</tr>
 						<?php $sn++; ?>

@@ -44,14 +44,14 @@
             <tr>
               <td><?php echo $ex->nama_obat ?></td>
               <td><?php echo $ex->penyimpanan ?></td>
-              <td><?php echo $ex->nama_kategori ?></td>
+              <td><?php echo $ex->kategori_id ?></td>
           
               <td><?php echo $ex->stok ?></td>
               <td><?php echo date('j F Y',strtotime($ex->kedaluwarsa)); ?></td>
               
               <td><?php echo number_format($ex->harga_jual) ?></td>
-              <td><?php echo $ex->unit ?></td>
-              <td><?php echo $ex->nama_pemasok ?></td>
+              <td><?php echo $ex->unit_id ?></td>
+              <td><?php echo $ex->pemasok_id ?></td>
               
             </tr>
 
@@ -104,12 +104,12 @@
             <tr>
               <td><?php echo $ax->nama_obat ?></td>
               <td><?php echo $ax->penyimpanan ?></td>
-              <td><?php echo $ax->nama_kategori ?></td>
+              <td><?php echo $ax->kategori_id ?></td>
               <td><?php echo $ax->stok ?></td>
               <td><?php echo date('j F Y',strtotime($ax->kedaluwarsa)); ?></td>
               <td><?php echo number_format($ax->harga_jual) ?></td>
-              <td><?php echo $ax->unit ?></td>
-              <td><?php echo $ax->nama_pemasok ?></td>
+              <td><?php echo $ax->unit_id ?></td>
+              <td><?php echo $ax->pemasok_id ?></td>
               
             </tr>
 
