@@ -14,7 +14,7 @@
       </div>
       <div class="x_content">
 
-        <form action="<?php echo base_url(). 'example/add_medicine'; ?>" method="post" class="form-horizontal form-label-left" novalidate>
+        <form action="<?php echo base_url(). 'obatcontroller/add_medicine'; ?>" method="post" class="form-horizontal form-label-left" novalidate>
 
 
           <div class="item form-group">
@@ -27,7 +27,14 @@
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="penyimpanan">Penyimpanan</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input id="penyimpanan" name="penyimpanan" required="required" class="form-control col-md-7 col-xs-12">
+              <select name="penyimpanan" id="penyimpanan" required="required" class="select2_single form-control">
+                <option selected="true" value="" disabled>Pilih Penyimpanan</option>
+                <option value="Rak 1">Rak 1</option>
+                <option value="Rak 2">Rak 2</option>
+                <option value="Rak 3">Rak 3</option>
+                <option value="Rak 4">Rak 4</option>
+                <option value="Rak 5">Rak 5</option>
+              </select>
             </div>
           </div>
           <div class="item form-group">
@@ -39,11 +46,11 @@
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="unit">Unit</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <select name="unit" id="unit" class="select2_single form-control" tabindex="-1" required="required">
+              <select name="unit_id" id="unit_id" class="select2_single form-control" tabindex="-1" required="required">
                 <option selected="true" value="" disabled ></option>
-                <?php foreach($get_unit as $gu){ ?>
-                  <option value="<?php echo $gu; ?>"><?php echo $gu; ?></option>
-               <?php  }?>
+                <?php foreach($get_unit as $gu): ?>
+                  <option value="<?php echo $gu;?>"><?php echo $gu;?></option>
+                <?php endforeach; ?>
               </select>
             </div>
           </div>
@@ -51,7 +58,7 @@
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_kategori">Kategori</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <select  name="nama_kategori" id="nama_kategori" class="select2_single form-control" tabindex="-1" required="required">
+              <select  name="kategori_id" id="kategori_id" class="select2_single form-control" tabindex="-1" required="required">
                 <option selected="true" value="" disabled ></option>
                 <?php foreach($get_cat as $gc){ ?>
                   <option value="<?php echo $gc; ?>"><?php echo $gc; ?></option>
@@ -95,7 +102,7 @@
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_pemasok">Nama Pemasok</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <select name="nama_pemasok" id="nama_pemasok" class="select2_single form-control" tabindex="-1" required="required">
+              <select name="pemasok_id" id="pemasok_id" class="select2_single form-control" tabindex="-1" required="required">
                 <option selected="true" value="" disabled ></option>
                   <?php foreach($get_sup as $gs){ ?>
                     <option value="<?php echo $gs; ?>"><?php echo $gs; ?></option>
@@ -107,7 +114,7 @@
           <div class="ln_solid"></div>
           <div class="form-group">
             <div class="col-md-6 col-md-offset-3">
-              <a href="<?php echo base_url('example/table_med') ?>"><button type="button" class="btn btn-danger">Batal</button></a>
+              <a href="<?php echo base_url('obatcontroller/table_med') ?>"><button type="button" class="btn btn-danger">Batal</button></a>
               <button id="send" type="submit" class="btn btn-success">Simpan</button>
               
             </div>

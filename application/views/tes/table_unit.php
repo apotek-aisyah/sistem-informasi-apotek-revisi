@@ -29,7 +29,7 @@
 
 				
 
-				<a href="<?php echo base_url('example/form_unit') ?>"><button type="button" class="btn btn-success" style="margin-bottom: 13px"><span class="fa fa-plus"></span> Tambah Unit </button></a>
+				<a href="<?php echo base_url('unit/form_unit') ?>"><button type="button" class="btn btn-success" style="margin-bottom: 13px"><span class="fa fa-plus"></span> Tambah Unit </button></a>
 				
 				<table id="datatable-buttons" class="table table-striped table-bordered">
 					<thead>
@@ -49,8 +49,8 @@
 							<td><?php echo $u->unit ?></td>
 							
 							<td style=" text-align: center;">
-								<?php echo anchor('example/edit_form_unit/'.$u->id_unit, '<button class="btn btn-info btn-xs" type="button"><span class="fa fa-pencil"></span></button>'); ?>
-								<?php echo anchor('example/remove_unit/'.$u->id_unit, '<button class="btn btn-danger btn-xs" type="button"><span class="fa fa-trash"></span></button>');?>
+								<?php echo anchor('unit/edit_form_unit/'.$u->id_unit, '<button class="btn btn-info btn-xs" type="button"><span class="fa fa-pencil"></span></button>'); ?>
+								<?php echo anchor('unit/remove_unit/'.$u->id_unit, '<button class="btn btn-danger btn-xs" type="button"><span class="fa fa-trash"></span></button>');?>
 					         </td>
 						</tr>
 						<?php $sn++; ?>

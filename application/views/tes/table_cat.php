@@ -29,7 +29,7 @@
 
 				
 
-				<a href="<?php echo base_url('example/form_cat') ?>"><button type="button" class="btn btn-success" style="margin-bottom: 13px"><span class="fa fa-plus"></span> Tambah Kategori </button></a>
+				<a href="<?php echo base_url('kategori/form_cat') ?>"><button type="button" class="btn btn-success" style="margin-bottom: 13px"><span class="fa fa-plus"></span> Tambah Kategori </button></a>
 				
 				<table id="datatable-buttons" class="table table-striped table-bordered">
 					<thead>
@@ -49,8 +49,8 @@
 							<td><?php echo $c->nama_kategori ?></td>
 							<td><?php echo $c->des_kat ?></td>
 							<td style=" text-align: center;">
-								<?php echo anchor('example/edit_form_cat/'.$c->id_kat, '<button class="btn btn-info btn-xs" type="button"><span class="fa fa-pencil"></span></button>'); ?>
-								<?php echo anchor('example/remove_cat/'.$c->id_kat, '<button class="btn btn-danger btn-xs" type="button"><span class="fa fa-trash"></span></button>');?>
+								<?php echo anchor('kategori/edit_form_cat/'.$c->id_kat, '<button class="btn btn-info btn-xs" type="button"><span class="fa fa-pencil"></span></button>'); ?>
+								<?php echo anchor('kategori/remove_cat/'.$c->id_kat, '<button class="btn btn-danger btn-xs" type="button"><span class="fa fa-trash"></span></button>');?>
 					         </td>
 						</tr>
 						<?php $sn++; ?>
