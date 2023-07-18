@@ -103,7 +103,7 @@
             <?php foreach($table_alex as $ax){ ?>
             <tr>
               <td><?php echo $ax->nama_obat ?></td>
-              <td><?php echo $ax->penyimpanan ?></td>
+              <td><?php echo $ax->penyimpanan_id ?></td>
               <td><?php echo $ax->kategori_id ?></td>
               <td><?php echo $ax->stok ?></td>
               <td><?php echo date('j F Y',strtotime($ax->kedaluwarsa)); ?></td>

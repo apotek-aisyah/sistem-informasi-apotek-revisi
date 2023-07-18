@@ -4,12 +4,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     class Unit extends CI_controller {
         function __construct() {
             parent::__construct();
-            $this->load->model('apotek_data');
+            $this->load->model('m_unit');
             $this->load->database();
             $this->load->helper(array('form', 'url'));
             
-            $data['nullstock'] = $this->apotek_data->countstock();
-            $data['nullex'] = $this->apotek_data->countex();
+            $data['nullstock'] = $this->m_unit->countstock();
+            $data['nullex'] = $this->m_unit->countex();
             $this->template->write_view('sidenavs', 'template/default_sidenavs', true);
 		    $this->template->write_view('navs', 'template/default_topnavs.php', $data, true);
         }
@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         function table_unit() {
 		
-            $data['table_unit'] = $this->apotek_data->unit()->result();
+            $data['table_unit'] = $this->m_unit->unit()->result();
             $this->template->write('title', 'Lihat Unit', TRUE);
             $this->template->write('header', 'Sistem Informasi Apotek');
             $this->template->write_view('content', 'tes/table_unit', $data, true);
@@ -40,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 
                 );
-            $this->apotek_data->insert_data($data,'table_unit');
+            $this->m_unit->insert_data($data,'table_unit');
     
             $this->session->set_flashdata('unit_added', 'Unit berhasil ditambahkan');
             redirect('unit/table_unit');
@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         function edit_form_unit($id_unit) {
             $where = array('id_unit' => $id_unit);
-            $data['table_unit'] = $this->apotek_data->edit_data($where,'table_unit')->result();
+            $data['table_unit'] = $this->m_unit->edit_data($where,'table_unit')->result();
             $this->template->write('title', 'Ubah Unit', TRUE);
             $this->template->write('header', 'Sistem Informasi Apotek');
             $this->template->write_view('content', 'tes/edit_form_unit', $data, true);
@@ -69,7 +69,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 'id_unit' => $id_unit
             );
     
-            $this->apotek_data->update_data($where,$data,'table_unit');
+            $this->m_unit->update_data($where,$data,'table_unit');
     
             $this->session->set_flashdata('unit_added', 'Data unit berhasil diperbarui');
             redirect('unit/table_unit');
@@ -78,7 +78,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         function remove_unit($id_unit){
             $where = array('id_unit' => $id_unit);
             
-            $this->apotek_data->delete_data($where,'table_unit');
+            $this->m_unit->delete_data($where,'table_unit');
             redirect('unit/table_unit');
         }
     }

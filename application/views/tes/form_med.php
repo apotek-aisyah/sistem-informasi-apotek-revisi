@@ -25,15 +25,13 @@
           </div>
 
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="penyimpanan">Penyimpanan</label>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="penyimpanan_id">Penyimpanan</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <select name="penyimpanan" id="penyimpanan" required="required" class="select2_single form-control">
-                <option selected="true" value="" disabled>Pilih Penyimpanan</option>
-                <option value="Rak 1">Rak 1</option>
-                <option value="Rak 2">Rak 2</option>
-                <option value="Rak 3">Rak 3</option>
-                <option value="Rak 4">Rak 4</option>
-                <option value="Rak 5">Rak 5</option>
+              <select name="penyimpanan_id" id="penyimpanan_id" required="required" class="select2_single form-control">
+                <option selected="true" value="" disabled >Pilih Penyimpanan</option>
+                  <?php foreach ($storage as $row) {?>
+                    <option value='<?php echo $row->id?>'><?php echo $row->name?></option>
+                  <?php }?>
               </select>
             </div>
           </div>
@@ -47,10 +45,10 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="unit">Unit</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <select name="unit_id" id="unit_id" class="select2_single form-control" tabindex="-1" required="required">
-                <option selected="true" value="" disabled ></option>
-                <?php foreach($get_unit as $gu): ?>
-                  <option value="<?php echo $gu;?>"><?php echo $gu;?></option>
-                <?php endforeach; ?>
+                <option selected="true" value="" disabled>Pilih Unit</option>
+                  <?php foreach ($unit as $row) {?>
+                      <option value='<?php echo $row->id_unit?>'><?php echo $row->unit?></option>
+                  <?php }?>
               </select>
             </div>
           </div>
@@ -59,10 +57,10 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_kategori">Kategori</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <select  name="kategori_id" id="kategori_id" class="select2_single form-control" tabindex="-1" required="required">
-                <option selected="true" value="" disabled ></option>
-                <?php foreach($get_cat as $gc){ ?>
-                  <option value="<?php echo $gc; ?>"><?php echo $gc; ?></option>
-               <?php  }?>
+                <option selected="true" value="" disabled >Pilih Kategori</option>
+                <?php foreach ($get_cat as $row) {?>
+                      <option value='<?php echo $row->id_kat?>'><?php echo $row->nama_kategori?></option>
+                <?php }?>
             </select>
             </div>
           </div>
@@ -103,10 +101,10 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_pemasok">Nama Pemasok</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <select name="pemasok_id" id="pemasok_id" class="select2_single form-control" tabindex="-1" required="required">
-                <option selected="true" value="" disabled ></option>
-                  <?php foreach($get_sup as $gs){ ?>
-                    <option value="<?php echo $gs; ?>"><?php echo $gs; ?></option>
-                 <?php  }?>
+                <option selected="true" value="" disabled >Pilih Pemasok</option>
+                  <?php foreach ($get_sup as $row) {?>
+                    <option value='<?php echo $row->id_pem?>'><?php echo $row->nama_pemasok?></option>
+                  <?php }?>
               </select>
             </div>
           </div>
