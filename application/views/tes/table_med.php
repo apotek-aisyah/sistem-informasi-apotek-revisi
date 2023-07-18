@@ -47,14 +47,14 @@
 						<?php foreach($table_med as $m){ ?>
 						<tr>
 							<td><?php echo $m->nama_obat ?></td>
-							<td><?php echo $m->penyimpanan ?></td>
-							<td><?php echo $m->kategori_id ?></td>
+							<td><?php echo $m->name ?></td>
+							<td><?php echo $m->nama_kategori ?></td>
 					
 							<td><?php echo $m->stok ?></td>
 							<td><?php echo date('j F Y',strtotime($m->kedaluwarsa)); ?></td>
 							
 							<td>Rp <?php echo number_format($m->harga_jual) ?></td>
-							<td><?php echo $m->unit_id ?></td>
+							<td><?php echo $m->unit ?></td>
 							<td style=" text-align: center;">
 								<?php echo anchor('obatcontroller/edit_form_med/'.$m->id_obat, '<button class="btn btn-info btn-xs" type="button"><span class="fa fa-pencil"></span></button>'); ?>
 								<?php echo anchor('obatcontroller/remove_med/'.$m->id_obat, '<button class="btn btn-danger btn-xs" type="button"><span class="fa fa-trash"></span></button>');?>

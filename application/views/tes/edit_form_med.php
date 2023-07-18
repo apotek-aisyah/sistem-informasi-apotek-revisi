@@ -14,29 +14,27 @@
       </div>
       <div class="x_content">
 
-        <?php foreach($table_med as $m){ ?>
         <form action="<?php echo base_url(). 'obatcontroller/update_medicine'; ?>" method="post" class="form-horizontal form-label-left" novalidate>
 
 
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_obat">Nama Obat</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input type="hidden" name="id_obat" value="<?php echo $m->id_obat ?>">
-              <input type="text" id="nama_obat" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="1" name="nama_obat" required="required" value="<?php echo $m->nama_obat ?>">
+              <input type="hidden" name="id_obat" value="<?php echo $table_med['id_obat']?>">
+              <input type="text" id="nama_obat" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="1" name="nama_obat" required="required" value="<?php echo $table_med['nama_obat']?>">
             </div>
           </div>
 
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="penyimpanan">Penyimpanan</label>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="unit">Unit</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <select name="penyimpanan" id="penyimpanan" required="required" class="select2_single form-control">
-                  <option selected="true" value="" disabled><?php echo $m->penyimpanan ?></option>
-                  <option <?php { echo 'selected="selected"'; } ?>value="Rak 1">Rak 1</option>
-                  <option <?php { echo 'selected="selected"'; } ?> value="Rak 2">Rak 2</option>
-                  <option <?php { echo 'selected="selected"'; } ?> value="Rak 3">Rak 3</option>
-                  <option <?php { echo 'selected="selected"'; } ?> value="Rak 4">Rak 4</option>
-                  <option <?php { echo 'selected="selected"'; } ?> value="Rak 5">Rak 5</option>
-                </select>
+              <select name="penyimpanan_id" id="penyimpanan_id" class="select2_single form-control" tabindex="-1">
+              <?php foreach ($storage as $s) {
+                echo "<option value='$s->penyimpanan_id'";
+                echo $table_med['penyimpanan_id']==$s->id?'selected':'';
+                echo">$s->name</option>";
+              } ?>
+              </select>
             </div>
           </div>
 
@@ -44,7 +42,7 @@
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="stok">Banyak Stok</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input type="number" id="stok" name="stok" required="required" data-validate-minmax="0,1000" class="form-control col-md-7 col-xs-12" value="<?php echo $m->stok ?>">
+              <input type="number" id="stok" name="stok" required="required" data-validate-minmax="0,1000" class="form-control col-md-7 col-xs-12" value="<?php echo $table_med['stok']?>">
             </div>
           </div>
 
@@ -52,10 +50,11 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="unit">Unit</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <select name="unit_id" id="unit_id" class="select2_single form-control" tabindex="-1">
-                 <?php foreach ($get_unit as $gu) { ?>
-                  <option <?php if($gu == $m->unit_id)
-                  { echo 'selected="selected"'; } ?> value="<?php echo $gu ?>"><?php echo $gu ?> </option>
-                  <?php } ?>
+              <?php foreach ($unit as $u) {
+                echo "<option value='$u->unit_id'";
+                echo $table_med['unit_id']==$u->id_unit?'selected':'';
+                echo">$u->unit</option>";
+              } ?>
               </select>
             </div>
           </div>
@@ -64,10 +63,11 @@
             <div class="col-md-6 col-sm-6 col-xs-12">
               <select name="kategori_id" id="kategori_id" class="select2_single form-control" tabindex="-1">
                
-              <?php foreach ($get_cat as $gc) { ?>
-              <option <?php if($gc == $m->kategori_id)
-              { echo 'selected="selected"'; } ?> value="<?php echo $gc ?>"><?php echo $gc ?> </option>
-              <?php } ?>
+              <?php foreach ($get_cat as $gc) {
+                echo "<option value='$gc->kategori_id'";
+                echo $table_med['kategori_id']==$gc->id_kat?'selected':'';
+                echo">$gc->nama_kategori</option>";
+              } ?>
 
 
             </select>
@@ -79,7 +79,7 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="kedaluwarsa">Tanggal Kedaluwarsa</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <div class='input-group date' id='myDatepicker2'>
-                  <input type="text" name="kedaluwarsa" id="kedaluwarsa" class="form-control" required="required"value="<?php echo date('d-m-Y',strtotime($m->kedaluwarsa)); ?>">
+                  <input type="text" name="kedaluwarsa" id="kedaluwarsa" class="form-control" required="required"value="<?php echo date('d-m-Y',strtotime($table_med['kedaluwarsa'])); ?>">
                   
                   <span class="input-group-addon">
                      <span class="glyphicon glyphicon-calendar"></span>
@@ -92,7 +92,7 @@
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="des_obat">Deskripsi</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input id="des_obat" name="des_obat" class="form-control col-md-7 col-xs-12" value="<?php echo $m->des_obat ?>"></textarea>
+              <input id="des_obat" name="des_obat" class="form-control col-md-7 col-xs-12" value="<?php echo $table_med['des_obat']?>"></textarea>
             </div>
           </div>
 
@@ -100,7 +100,7 @@
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="harga_beli">Harga Beli  (Rp)</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input type="number" id="harga_beli" name="harga_beli" required="required" data-validate-minmax="10,1000000" class="form-control col-md-7 col-xs-12" value="<?php echo $m->harga_beli ?>">
+              <input type="number" id="harga_beli" name="harga_beli" required="required" data-validate-minmax="10,1000000" class="form-control col-md-7 col-xs-12" value="<?php echo $table_med['harga_beli']?>">
             </div>
           </div>
 
@@ -108,7 +108,7 @@
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="harga_jual">Harga Jual (Rp)</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input type="number" id="harga_jual" name="harga_jual" required="required" data-validate-minmax="10,1000000" class="form-control col-md-7 col-xs-12" value="<?php echo $m->harga_jual ?>">
+              <input type="number" id="harga_jual" name="harga_jual" required="required" data-validate-minmax="10,1000000" class="form-control col-md-7 col-xs-12" value="<?php echo $table_med['harga_jual']?>">
             </div>
           </div>
 
@@ -117,10 +117,11 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_pemasok">Pemasok</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <select name="pemasok_id" id="pemasok_id" class="select2_single form-control" tabindex="-1">
-                <?php foreach ($get_sup as $gs) { ?>
-                <option <?php if($gs == $m->pemasok_id)
-                { echo 'selected="selected"'; } ?> value="<?php echo $gs ?>"><?php echo $gs ?> </option>
-                <?php } ?>
+              <?php foreach ($get_sup as $gs) {
+                echo "<option value='$gs->pemasok_id'";
+                echo $table_med['pemasok_id']==$gs->id_pem?'selected':'';
+                echo">$gs->nama_pemasok</option>";
+              } ?>
               </select>
             </div>
           </div>
@@ -134,7 +135,6 @@
             </div>
           </div>
         </form>
-         <?php } ?>
       </div>
     </div>
   </div>

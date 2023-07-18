@@ -5,18 +5,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         function __construct() {
             parent::__construct();
-            $this->load->model('apotek_data');
+            $this->load->model('m_pemasok');
             $this->load->database();
             $this->load->helper(array('form', 'url'));
             
-            $data['nullstock'] = $this->apotek_data->countstock();
-            $data['nullex'] = $this->apotek_data->countex();
+            $data['nullstock'] = $this->m_pemasok->countstock();
+            $data['nullex'] = $this->m_pemasok->countex();
             $this->template->write_view('sidenavs', 'template/default_sidenavs', true);
 		    $this->template->write_view('navs', 'template/default_topnavs.php', $data, true);
         }
 
         function table_sup() {
-            $data['table_sup'] = $this->apotek_data->supplier()->result();
+            $data['table_sup'] = $this->m_pemasok->supplier()->result();
             
             $this->template->write('title', 'Lihat Pemasok', TRUE);
             $this->template->write('header', 'Sistem Informasi Apotek');
@@ -43,7 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 'alamat' => $alamat,
                 'telepon' => $telepon,
                 );
-            $this->apotek_data->insert_data($data,'table_sup');
+            $this->m_pemasok->insert_data($data,'table_sup');
     
             $this->session->set_flashdata('sup_added', 'Pemasok berhasil ditambahkan');
             redirect('pemasok/table_sup');
@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         function edit_form_sup($id_pem) {
             $where = array('id_pem' => $id_pem);
-            $data['table_sup'] = $this->apotek_data->edit_data($where,'table_sup')->result();
+            $data['table_sup'] = $this->m_pemasok->edit_data($where,'table_sup')->result();
             $this->template->write('title', 'Ubah Pemasok', TRUE);
             $this->template->write('header', 'Sistem Informasi Apotek');
             $this->template->write_view('content', 'tes/edit_form_sup', $data, true);
@@ -75,7 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 'id_pem' => $id_pem
             );
     
-            $this->apotek_data->update_data($where,$data,'table_sup');
+            $this->m_pemasok->update_data($where,$data,'table_sup');
     
             $this->session->set_flashdata('sup_added', 'Data pemasok berhasil diperbarui');
             redirect('pemasok/table_sup');
@@ -83,7 +83,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         function remove_sup($id_pem){
             $where = array('id_pem' => $id_pem);
-            $this->apotek_data->delete_data($where,'table_sup');
+            $this->m_pemasok->delete_data($where,'table_sup');
             redirect('pemasok/table_sup');
         }
     }

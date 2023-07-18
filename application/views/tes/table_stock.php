@@ -45,7 +45,7 @@
             <?php foreach($table_stock as $os){ ?>
             <tr>
               <td><?php echo $os->nama_obat ?></td>
-              <td><?php echo $os->penyimpanan ?></td>
+              <td><?php echo $os->penyimpanan_id ?></td>
               <td><?php echo $os->kategori_id ?></td>
               <td><?php echo $os->stok ?></td>
               <td><?php echo date('j F Y',strtotime($os->kedaluwarsa));?></td>
@@ -103,7 +103,7 @@
             <?php foreach($table_alstock as $as){ ?>
             <tr>
               <td><?php echo $as->nama_obat ?></td>
-              <td><?php echo $as->penyimpanan ?></td>
+              <td><?php echo $as->penyimpanan_id ?></td>
               <td><?php echo $as->kategori_id ?></td>
               <td><?php echo $as->stok ?></td>
               <td><?php echo date('j F Y',strtotime($as->kedaluwarsa)); ?></td>
