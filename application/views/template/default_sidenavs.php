@@ -43,6 +43,13 @@
 						</ul>
 					</li>
 
+					<li><a><i class="fa fa-save"></i> Penyimpanan Obat <span class="fa fa-chevron-down"></span></a>
+						<ul class="nav child_menu">
+							<li><a href="<?php echo base_url('penyimpanan/form_storage') ?>">Tambah Penyimpanan</a></li>
+                    		<li><a href="<?php echo base_url('penyimpanan/table_storage') ?>">Lihat Penyimpanan</a></li>
+						</ul>
+					</li>
+
 					<li><a><i class="fa fa-users"></i> Pemasok <span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu">
 							<li><a href="<?php echo base_url('pemasok/form_sup') ?>">Tambah Pemasok</a></li>

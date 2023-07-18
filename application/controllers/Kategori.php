@@ -4,12 +4,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     class Kategori extends CI_controller {
         function __construct() {
             parent::__construct();
-            $this->load->model('apotek_data');
+            $this->load->model('m_kategori');
             $this->load->database();
             $this->load->helper(array('form', 'url'));
             
-            $data['nullstock'] = $this->apotek_data->countstock();
-            $data['nullex'] = $this->apotek_data->countex();
+            $data['nullstock'] = $this->m_kategori->countstock();
+            $data['nullex'] = $this->m_kategori->countex();
             $this->template->write_view('sidenavs', 'template/default_sidenavs', true);
 		    $this->template->write_view('navs', 'template/default_topnavs.php', $data, true);
         }
@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         function table_cat() {
 		
-            $data['table_cat'] = $this->apotek_data->category()->result();
+            $data['table_cat'] = $this->m_kategori->category()->result();
             $this->template->write('title', 'Lihat Kategori', TRUE);
             $this->template->write('header', 'Sistem Informasi Apotek');
             $this->template->write_view('content', 'tes/table_cat', $data, true);
@@ -41,7 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 'des_kat' => $des_kat,
                 
                 );
-            $this->apotek_data->insert_data($data,'table_cat');
+            $this->m_kategori->insert_data($data,'table_cat');
     
             $this->session->set_flashdata('cat_added', 'Kategori berhasil ditambahkan');
             redirect('kategori/table_cat');
@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         function edit_form_cat($id_kat) {
             $where = array('id_kat' => $id_kat);
-            $data['table_cat'] = $this->apotek_data->edit_data($where,'table_cat')->result();
+            $data['table_cat'] = $this->m_kategori->edit_data($where,'table_cat')->result();
             $this->template->write('title', 'Ubah Kategori', TRUE);
             $this->template->write('header', 'Sistem Informasi Apotek');
             $this->template->write_view('content', 'tes/edit_form_cat', $data, true);
@@ -71,7 +71,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 'id_kat' => $id_kat
             );
     
-            $this->apotek_data->update_data($where,$data,'table_cat');
+            $this->m_kategori->update_data($where,$data,'table_cat');
     
             $this->session->set_flashdata('cat_added', 'Data kategori berhasil diperbarui');
             redirect('kategori/table_cat');
@@ -79,7 +79,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         function remove_cat($id_kat){
             $where = array('id_kat' => $id_kat);
-            $this->apotek_data->delete_data($where,'table_cat');
+            $this->m_kategori->delete_data($where,'table_cat');
             redirect('kategori/table_cat');
         }
     }
