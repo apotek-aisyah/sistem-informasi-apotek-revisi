@@ -15,6 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
             $data['nullstock'] = $this->m_obat->countstock();
             $data['nullex'] = $this->m_obat->countex();
+            $data['almost'] = $this->apotek_data->countalmostex();
             $this->template->write_view('sidenavs', 'template/default_sidenavs', true);
 		    $this->template->write_view('navs', 'template/default_topnavs.php', $data, true);
         }
