@@ -53,7 +53,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $data['harga_beli'] = $this->input->post('harga_beli');
             $data['harga_jual'] = $this->input->post('harga_jual');
             $data['pemasok_id'] = $this->input->post('pemasok_id');
-    
+		    $data['recipe'] = $this->input->post('recipe');
+
             $this->m_obat->post($data);
 
             $this->session->set_flashdata('med_added', 'Obat berhasil ditambahkan');
