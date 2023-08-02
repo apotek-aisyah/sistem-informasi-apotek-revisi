@@ -6,11 +6,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         function __construct() {
             parent::__construct();
             $this->load->model('m_pemasok');
+            $this->load->model('apotek_data');
             $this->load->database();
             $this->load->helper(array('form', 'url'));
             
             $data['nullstock'] = $this->m_pemasok->countstock();
             $data['nullex'] = $this->m_pemasok->countex();
+            $data['almost'] = $this->apotek_data->countalmostex();
             $this->template->write_view('sidenavs', 'template/default_sidenavs', true);
 		    $this->template->write_view('navs', 'template/default_topnavs.php', $data, true);
         }

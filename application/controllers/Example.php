@@ -16,7 +16,7 @@ class Example extends CI_Controller
        
         $data['nullstock'] = $this->apotek_data->countstock();
         $data['nullex'] = $this->apotek_data->countex();
-				$data['almost'] = $this->apotek_data->countalmostex();
+		$data['almost'] = $this->apotek_data->countalmostex();
         $this->template->write_view('sidenavs', 'template/default_sidenavs', true);
 		$this->template->write_view('navs', 'template/default_topnavs.php', $data, true);
 	}
@@ -137,14 +137,14 @@ class Example extends CI_Controller
 	// 	$this->template->render();
 	// }
 
-	// function table_invoice() {
-	// 	$data['table_invoice'] = $this->apotek_data->invoice()->result();
-	// 	$this->template->write('title', 'Lihat Penjualan', TRUE);
-	// 	$this->template->write('header', 'Sistem Informasi Apotek');
-	// 	$this->template->write_view('content', 'tes/table_invoice', $data, true);
+	function table_invoice() {
+		$data['table_invoice'] = $this->apotek_data->invoice()->result();
+		$this->template->write('title', 'Lihat Penjualan', TRUE);
+		$this->template->write('header', 'Sistem Informasi Apotek');
+		$this->template->write_view('content', 'tes/table_invoice', $data, true);
 
-	// 	$this->template->render();
-	// }
+		$this->template->render();
+	}
 
 	// function add_invoice(){
 		 

@@ -71,10 +71,7 @@
 					<?php echo $content ?>
 				</div>
 
-				<div style=" margin-top: 10%; ">
-					<a href="<?php echo base_url(); ?>"><img src="<?php echo base_url('assets/images/.jpg') ?>" alt="..." class="img-home"></a>
-					<div class="clearfix"></div>
-				</div>
+				
 			</div>
 
 			<!-- /Page Content -->
@@ -767,7 +764,7 @@
 		$('#addpurchase').on('click', function() {
 
 			purchase.row.add([
-				'<select required="required" style="width:100%;" class="form-control nama_obat" id="nama_obat' + count + '" name="nama_obat[]" data-stok="#stok' + count + '" data-unit="#unit' + count + '" data-harga_beli="#harga_beli' + count + '"><option selected="true" value="" disabled >Pilih pemasok</option></select>',
+				'<select required="required" style="width:100%;" class="form-control nama_obat" id="nama_obat' + count + '" name="nama_obat[]" data-stok="#stok' + count + '" data-unit="#unit' + count + '" data-harga_beli="#harga_beli' + count + '"><option selected="true" value="" disabled ></option></select>',
 				'<input id="stok' + count + '" name="stok[]" class="form-control stok" readonly >',
 				'<input id="unit' + count + '" name="unit[]" class="form-control unit" readonly>',
 				'<input id="harga_beli' + count + '" name="harga_beli[]" class="form-control harga_beli" readonly>',

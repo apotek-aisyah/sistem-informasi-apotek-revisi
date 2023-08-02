@@ -15,25 +15,23 @@
       <div class="x_content">
 
         <form action="<?php echo base_url(). 'obatcontroller/update_medicine'; ?>" method="post" class="form-horizontal form-label-left" novalidate>
-
+          <input type="hidden" name="id_obat" value="<?php echo $obat->id_obat?>">
 
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_obat">Nama Obat</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input type="hidden" name="id_obat" value="<?php echo $table_med['id_obat']?>">
-              <input type="text" id="nama_obat" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="1" name="nama_obat" required="required" value="<?php echo $table_med['nama_obat']?>">
+              <input type="text" id="nama_obat" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="1" name="nama_obat" required="required" value="<?php echo $obat->nama_obat?>">
             </div>
           </div>
 
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="unit">Unit</label>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="unit">Penyimpanan</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <select name="penyimpanan_id" id="penyimpanan_id" class="select2_single form-control" tabindex="-1">
-              <?php foreach ($storage as $s) {
-                echo "<option value='$s->penyimpanan_id'";
-                echo $table_med['penyimpanan_id']==$s->id?'selected':'';
-                echo">$s->name</option>";
-              } ?>
+                <?php foreach ($storage as $s): ?>
+                    <option value="<?php echo $s->id?>" <?php if($s->id == $obat->penyimpanan_id)
+                    echo 'selected'; ?>><?php echo $s->name ?></option>
+                <?php endforeach; ?>
               </select>
             </div>
           </div>
@@ -42,7 +40,7 @@
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="stok">Banyak Stok</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input type="number" id="stok" name="stok" required="required" data-validate-minmax="0,1000" class="form-control col-md-7 col-xs-12" value="<?php echo $table_med['stok']?>">
+              <input type="number" id="stok" name="stok" required="required" data-validate-minmax="0,1000" class="form-control col-md-7 col-xs-12" value="<?php echo $obat->stok?>">
             </div>
           </div>
 
@@ -50,11 +48,10 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="unit">Unit</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <select name="unit_id" id="unit_id" class="select2_single form-control" tabindex="-1">
-              <?php foreach ($unit as $u) {
-                echo "<option value='$u->unit_id'";
-                echo $table_med['unit_id']==$u->id_unit?'selected':'';
-                echo">$u->unit</option>";
-              } ?>
+                <?php foreach ($get_unit as $gu): ?>
+                      <option value="<?php echo $gu->id_unit?>" <?php if($gu->id_unit == $obat->unit_id)
+                      echo 'selected'; ?>><?php echo $gu->unit ?></option>
+                  <?php endforeach; ?>
               </select>
             </div>
           </div>
@@ -63,11 +60,10 @@
             <div class="col-md-6 col-sm-6 col-xs-12">
               <select name="kategori_id" id="kategori_id" class="select2_single form-control" tabindex="-1">
                
-              <?php foreach ($get_cat as $gc) {
-                echo "<option value='$gc->kategori_id'";
-                echo $table_med['kategori_id']==$gc->id_kat?'selected':'';
-                echo">$gc->nama_kategori</option>";
-              } ?>
+                <?php foreach ($get_cat as $kategori): ?>
+                  <option value="<?php echo $kategori->id_kat?>" <?php if($kategori->id_kat == $obat->kategori_id)
+                  echo 'selected'; ?>><?php echo $kategori->nama_kategori ?></option>
+                <?php endforeach; ?>
 
 
             </select>
@@ -79,7 +75,7 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="kedaluwarsa">Tanggal Kedaluwarsa</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <div class='input-group date' id='myDatepicker2'>
-                  <input type="text" name="kedaluwarsa" id="kedaluwarsa" class="form-control" required="required"value="<?php echo date('d-m-Y',strtotime($table_med['kedaluwarsa'])); ?>">
+                  <input type="text" name="kedaluwarsa" id="kedaluwarsa" class="form-control" required="required"value="<?php echo date('d-m-Y',strtotime($obat->kedaluwarsa)); ?>">
                   
                   <span class="input-group-addon">
                      <span class="glyphicon glyphicon-calendar"></span>
@@ -92,7 +88,7 @@
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="des_obat">Deskripsi</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input id="des_obat" name="des_obat" class="form-control col-md-7 col-xs-12" value="<?php echo $table_med['des_obat']?>"></textarea>
+              <input id="des_obat" name="des_obat" class="form-control col-md-7 col-xs-12" value="<?php echo $obat->des_obat?>"></textarea>
             </div>
           </div>
 
@@ -100,7 +96,7 @@
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="harga_beli">Harga Beli  (Rp)</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input type="number" id="harga_beli" name="harga_beli" required="required" data-validate-minmax="10,1000000" class="form-control col-md-7 col-xs-12" value="<?php echo $table_med['harga_beli']?>">
+              <input type="number" id="harga_beli" name="harga_beli" required="required" data-validate-minmax="10,1000000" class="form-control col-md-7 col-xs-12" value="<?php echo $obat->harga_beli?>">
             </div>
           </div>
 
@@ -108,7 +104,7 @@
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="harga_jual">Harga Jual (Rp)</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input type="number" id="harga_jual" name="harga_jual" required="required" data-validate-minmax="10,1000000" class="form-control col-md-7 col-xs-12" value="<?php echo $table_med['harga_jual']?>">
+              <input type="number" id="harga_jual" name="harga_jual" required="required" data-validate-minmax="10,1000000" class="form-control col-md-7 col-xs-12" value="<?php echo $obat->harga_jual?>">
             </div>
           </div>
 
@@ -117,11 +113,10 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_pemasok">Pemasok</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <select name="pemasok_id" id="pemasok_id" class="select2_single form-control" tabindex="-1">
-              <?php foreach ($get_sup as $gs) {
-                echo "<option value='$gs->pemasok_id'";
-                echo $table_med['pemasok_id']==$gs->id_pem?'selected':'';
-                echo">$gs->nama_pemasok</option>";
-              } ?>
+              <?php foreach ($get_sup as $sup): ?>
+                    <option value="<?php echo $sup->id_pem?>" <?php if($sup->id_pem == $obat->pemasok_id)
+                    echo 'selected'; ?>><?php echo $sup->nama_pemasok ?></option>
+                <?php endforeach; ?>
               </select>
             </div>
           </div>

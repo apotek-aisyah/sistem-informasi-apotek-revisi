@@ -10,6 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->load->model('m_pemasok');
             $this->load->model('m_penyimpanan');
             $this->load->model('m_unit');
+            $this->load->model('apotek_data');
             $this->load->database();
             $this->load->helper(array('form', 'url'));
             
@@ -54,7 +55,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $data['harga_beli'] = $this->input->post('harga_beli');
             $data['harga_jual'] = $this->input->post('harga_jual');
             $data['pemasok_id'] = $this->input->post('pemasok_id');
-		    $data['recipe'] = $this->input->post('recipe');
 
             $this->m_obat->post($data);
 
@@ -62,13 +62,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             redirect('obatcontroller/table_med');
 	    }
 
-        function edit_form_med() {
+        function edit($id) {
             $data['get_cat'] = $this->m_kategori->category()->result();
             $data['get_sup'] = $this->m_pemasok->supplier()->result();
             $data['storage'] = $this->m_penyimpanan->storage()->result();
-            $data['unit'] = $this->m_unit->unit()->result();
-            $id=  $this->uri->segment(3);
-            $data['table_med'] = $this->m_obat->edit_data($id)->row_array();
+            $data['get_unit'] = $this->m_unit->unit()->result();
+            $data['obat'] = $this->m_obat->edit_data($id);
             $this->template->write('title', 'Ubah Obat', TRUE);
             $this->template->write('header', 'Sistem Informasi Apotek');
             $this->template->write_view('content', 'tes/edit_form_med', $data, true);
@@ -77,7 +76,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
     
         function update_medicine(){
-            $id_obat = $this->input->post('id_obat');
+            $id = $this->input->post('id_obat');
             $nama_obat = $this->input->post('nama_obat');
             $penyimpanan = $this->input->post('penyimpanan_id');
             $stok = $this->input->post('stok');

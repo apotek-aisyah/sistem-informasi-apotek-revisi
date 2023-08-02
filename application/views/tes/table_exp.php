@@ -43,7 +43,7 @@
             <?php foreach($table_exp as $ex){ ?>
             <tr>
               <td><?php echo $ex->nama_obat ?></td>
-              <td><?php echo $ex->penyimpanan ?></td>
+              <td><?php echo $ex->penyimpanan_id ?></td>
               <td><?php echo $ex->kategori_id ?></td>
           
               <td><?php echo $ex->stok ?></td>

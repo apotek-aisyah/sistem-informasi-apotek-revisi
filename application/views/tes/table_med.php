@@ -56,7 +56,7 @@
 							<td>Rp <?php echo number_format($m->harga_jual) ?></td>
 							<td><?php echo $m->unit ?></td>
 							<td style=" text-align: center;">
-								<?php echo anchor('obatcontroller/edit_form_med/'.$m->id_obat, '<button class="btn btn-info btn-xs" type="button"><span class="fa fa-pencil"></span></button>'); ?>
+								<?php echo anchor('obatcontroller/edit/'.$m->id_obat, '<button class="btn btn-info btn-xs" type="button"><span class="fa fa-pencil"></span></button>'); ?>
 								<?php echo anchor('obatcontroller/remove_med/'.$m->id_obat, '<button class="btn btn-danger btn-xs" type="button"><span class="fa fa-trash"></span></button>');?>
 					         </td>
 						</tr>

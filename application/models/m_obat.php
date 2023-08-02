@@ -19,6 +19,10 @@
             return $nullex;     
         }
 
+        function obat() {
+            return $this->db->get('table_med');
+        }
+
         function medicine() {
             $this->db->select('*');
             $this->db->from('table_med');
@@ -33,14 +37,12 @@
             $this->db->insert('table_med',$data);
         }
 
-        function edit_data($id) {
-            $param  =   array('id_obat'=>$id);
-            return $this->db->get_where('table_med',$param);
+        function edit_data ($id) {
+            return $this->db->where('id_obat', $id)->get('table_med')->row();
         }
     
         function update_data($data,$id) {
-            $this->db->where('id_obat',$id);
-            $this->db->update('table_med',$data);
+            $this->db->where('id_obat',$id)->update('table_med', $data);
         }  
     
         function delete_data($where,$table){

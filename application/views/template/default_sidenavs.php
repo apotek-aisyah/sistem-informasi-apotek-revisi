@@ -58,27 +58,29 @@
 					</li>
 
 				
-					<!-- <li><a><i class="fa fa-edit"></i> Penjualan <span class="fa fa-chevron-down"></span></a>
+					<li><a><i class="fa fa-edit"></i> Penjualan <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                    	<li><a href="#">Tambah Penjualan</a></li>
-                    	<li><a href="#">Lihat Penjualan</a></li>
-                    	<li><a href="#">Grafik Penjualan</a></li>
+                    	<li><a href="<?php echo base_url('transaksi/form_resep') ?>">Tambah Penjualan Resep</a></li>
+                    	<li><a href="<?php echo base_url('transaksi/table_resep') ?>">Lihat Penjualan Resep</a></li>
+						<li><a href="<?php echo base_url('transaksi/form_nonresep') ?>">Tambah Penjualan Non-Resep</a></li>
+						<li><a href="<?php echo base_url('transaksi/table_nonresep') ?>">Lihat Penjualan Non-Resep</a></li>
+						<li><a href="<?php echo base_url('transaksi/invoice_penjualan') ?>">Grafik Penjualan</a></li>
                     </ul>
                   </li>
 
 
                   <li><a><i class="fa fa-shopping-cart"></i> Pembelian <span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu">
-							<li><a href="#">Tambah Pembelian</a></li>
-							<li><a href="#">Lihat Pembelian</a></li>
-							<li><a href="#">Grafik Pembelian</a></li>
+							<li><a href="<?php echo base_url('pembelian/form_purchase') ?>">Tambah Pembelian</a></li>
+							<li><a href="<?php echo base_url('pembelian/table_purchase') ?>">Lihat Pembelian</a></li>
+							<li><a href="<?php echo base_url('pembelian/purchase_report') ?>">Grafik Pembelian</a></li>
 							
 							
 						</ul>
 					</li>
 
 
-					<li><a href="#"><i class="fa fa-bar-chart"></i> Laporan </a></li>-->
+					<li><a href="<?php echo base_url('laporan/report') ?>"><i class="fa fa-bar-chart"></i> Laporan </a></li>
 
 				</ul>
 			</div>
